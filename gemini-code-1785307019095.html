@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AURA POLOS | Premium Tailored Polo Shirts</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-navy: #0F172A;
+      --accent-gold: #D97706;
+      --bg-light: #F8FAFC;
+      --card-bg: #FFFFFF;
+      --text-dark: #1E293B;
+      --text-muted: #64748B;
+      --border-color: #E2E8F0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    /* Announcement Bar */
+    .announcement-bar {
+      background-color: var(--primary-navy);
+      color: #FFF;
+      text-align: center;
+      padding: 0.5rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    /* Header & Nav */
+    header {
+      background-color: #FFF;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 1.5rem;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--primary-navy);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-gold);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .btn-cart {
+      background-color: var(--primary-navy);
+      color: #FFF;
+      padding: 0.5rem 1.2rem;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+
+    .btn-cart:hover {
+      background-color: var(--accent-gold);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), 
+                  url('https://images.unsplash.com/photo-1625910513413-138334468f9a?auto=format&fit=crop&w=1600&q=80') center/cover;
+      color: #FFF;
+      text-align: center;
+      padding: 7rem 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: -0.5px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto 2rem auto;
+      color: #E2E8F0;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .btn-primary {
+      background-color: var(--accent-gold);
+      color: #FFF;
+      padding: 0.8rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: opacity 0.3s;
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      border: 2px solid #FFF;
+      color: #FFF;
+      padding: 0.8rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .btn-primary:hover { opacity: 0.9; }
+    .btn-secondary:hover { background-color: rgba(255,255,255,0.1); }
+
+    /* Products Grid */
+    .section-container {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      color: var(--primary-navy);
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 1.25rem;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--accent-gold);
+      margin-bottom: 0.3rem;
+      display: block;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1rem;
+    }
+
+    .price {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary-navy);
+    }
+
+    .btn-add {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    .btn-add:hover {
+      background-color: var(--primary-navy);
+      color: #FFF;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--primary-navy);
+      color: #94A3B8;
+      padding: 3rem 1.5rem 1.5rem 1.5rem;
+      margin-top: 5rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-col h4 {
+      color: #FFF;
+      margin-bottom: 1rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-col a {
+      color: #94A3B8;
+      text-decoration: none;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid #1E293B;
+      padding-top: 1.5rem;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="announcement-bar">
+    Free Express Shipping on Orders Over $100 | Code: <strong>AURA2026</strong>
+  </div>
+
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo">AURA POLOS</a>
+      <ul class="nav-links">
+        <li><a href="#shop">Shop All</a></li>
+        <li><a href="#classic">Classic Fit</a></li>
+        <li><a href="#slim">Slim Fit</a></li>
+        <li><a href="#performance">Performance</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="#cart" class="btn-cart">Cart (0)</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Engineered Comfort. Timeless Style.</h1>
+    <p>Handcrafted with 100% Peruvian Pima cotton. Perfect fit for the office, golf course, and weekend wear.</p>
+    <div class="hero-buttons">
+      <a href="#shop" class="btn-primary">Shop New Arrivals</a>
+      <a href="#about" class="btn-secondary">Explore Fabric Tech</a>
+    </div>
+  </section>
+
+  <section id="shop" class="section-container">
+    <div class="section-title">
+      <h2>Featured Polo Collection</h2>
+      <p>Precision tailoring meets breathable luxury performance fabrics.</p>
+    </div>
+
+    <div class="grid">
+      <!-- Product 1 -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1625910513413-138334468f9a?auto=format&fit=crop&w=600&q=80" alt="Midnight Navy Polo">
+        <div class="card-body">
+          <span class="tag">Pima Cotton</span>
+          <div class="card-title">Midnight Navy Classic Polo</div>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">Slim Fit • Breathable Mesh</p>
+          <div class="price-row">
+            <span class="price">$78.00</span>
+            <button class="btn-add">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=600&q=80" alt="Crisp White Polo">
+        <div class="card-body">
+          <span class="tag">Performance Tech</span>
+          <div class="card-title">Crisp White Sport Polo</div>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">Moisture Wicking • 4-Way Stretch</p>
+          <div class="price-row">
+            <span class="price">$82.00</span>
+            <button class="btn-add">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1626497764746-6dc36546b388?auto=format&fit=crop&w=600&q=80" alt="Olive Green Polo">
+        <div class="card-body">
+          <span class="tag">Luxury Blend</span>
+          <div class="card-title">Sage Olive Resort Polo</div>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">Silk-Cotton Blend • Modern Collar</p>
+          <div class="price-row">
+            <span class="price">$88.00</span>
+            <button class="btn-add">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <h4>AURA POLOS</h4>
+        <p>Elevating everyday essentials through superior craftsmanship and modern fit technology.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#">Classic Collection</a></li>
+          <li><a href="#">Performance Series</a></li>
+          <li><a href="#">Long Sleeve Polos</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Help</h4>
+        <ul>
+          <li><a href="#">Size Guide</a></li>
+          <li><a href="#">Shipping & Returns</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 AURA POLOS Inc. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
